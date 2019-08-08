@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<template id="zebra_stock_move_sticker">
+			<t t-call="report.html_container">
+				<t t-as="o" t-foreach="docs">
+					<t t-as="i" t-foreach="range(0,int(o.product_uom_qty))">
+						<t t-set="product" t-value="o.product_id"/>
+						<t t-call="ba_zebra_tag.zebra_barcode"/>
+					</t>
+				</t>
+			</t>
+		</template>
+		<report id="zebra_stock_move_sticker_24_71" model="stock.move" name="ba_zebra_tag.zebra_stock_move_sticker" report_type="qweb-pdf" string="Etiqueta 24x71"/>
+		<record id="zebra_stock_move_sticker_24_71" model="ir.actions.report.xml">
+			<field name="paperformat_id" ref="paperformat_sticker_24_71"/>
+		</record>
+		<report id="zebra_stock_move_sticker_63_31" model="stock.move" name="ba_zebra_tag.zebra_stock_move_sticker" report_type="qweb-pdf" string="Etiqueta 63x31"/>
+		<record id="zebra_stock_move_sticker_63_31" model="ir.actions.report.xml">
+			<field name="paperformat_id" ref="paperformat_sticker_63_31"/>
+		</record>
+		<report id="zebra_stock_move_sticker_50_25" model="stock.move" name="ba_zebra_tag.zebra_stock_move_sticker" report_type="qweb-pdf" string="Etiqueta 50x25"/>
+		<record id="zebra_stock_move_sticker_50_25" model="ir.actions.report.xml">
+			<field name="paperformat_id" ref="paperformat_sticker_50_25"/>
+		</record>
+		<template id="zebra_stock_picking_sticker">
+			<t t-call="report.html_container">
+				<t t-as="o" t-foreach="docs">
+					<t t-as="line" t-foreach="o.move_lines">
+						<t t-as="i" t-foreach="range(0,int(line.product_uom_qty))">
+							<t t-set="product" t-value="line.product_id"/>
+							<t t-call="ba_zebra_tag.zebra_barcode"/>
+						</t>
+					</t>
+				</t>
+			</t>
+		</template>
+		<report id="zebra_stock_picking_sticker_24_71" model="stock.picking" name="ba_zebra_tag.zebra_stock_picking_sticker" report_type="qweb-pdf" string="Etiqueta 24x71"/>
+		<record id="zebra_stock_picking_sticker_24_71" model="ir.actions.report.xml">
+			<field name="paperformat_id" ref="paperformat_sticker_24_71"/>
+		</record>
+		<report id="zebra_stock_picking_sticker_63_31" model="stock.picking" name="ba_zebra_tag.zebra_stock_picking_sticker" report_type="qweb-pdf" string="Etiqueta 63x31"/>
+		<record id="zebra_stock_picking_sticker_63_31" model="ir.actions.report.xml">
+			<field name="paperformat_id" ref="paperformat_sticker_63_31"/>
+		</record>
+		<report id="zebra_stock_picking_sticker_50_25" model="stock.picking" name="ba_zebra_tag.zebra_stock_picking_sticker" report_type="qweb-pdf" string="Etiqueta 50x25"/>
+		<record id="zebra_stock_picking_sticker_50_25" model="ir.actions.report.xml">
+			<field name="paperformat_id" ref="paperformat_sticker_50_25"/>
+		</record>
+	</data>
+</openerp>

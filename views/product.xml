@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<template id="zebra_barcode">
+			<div class="page">
+				<div style="text-align:center;">
+					<img style="width:auto;max-height:80px;" t-attf-src="data:image/*;base64,{{product.get_barcode(product.default_code,'Code128',480,80,0)}}"/>
+					<div style="overflow:hidden;width:100%;">
+						<div style="white-space: nowrap; font-weiht:700; white-space: nowrap; font-size:2em;" t-field="product.default_code"/>
+						<div style="white-space: nowrap; font-size:2em;" t-field="product.name"/>
+					</div>
+				</div>
+			</div>
+		</template>
+		<template id="zebra_sticker">
+			<t t-call="report.html_container">
+				<t t-as="o" t-foreach="docs">
+					<t t-set="product" t-value="o"/>
+					<t t-call="ba_zebra_tag.zebra_barcode"/>
+				</t>
+			</t>
+		</template>
+		<template id="zebra_sticker_watching_product">
+			<t t-call="report.html_container">
+				<t t-as="o" t-foreach="docs">
+					<div class="page">
+						<div style="text-align:center;">
+							<div style="white-space: nowrap;overflow:hidden;width:100%; border-bottom:1px solid #000;">
+								<div style="white-space: nowrap; font-weiht:700; white-space: nowrap; font-size:0.8em;" t-field="o.default_code"/>
+								<div style="font-size:1em;" t-field="o.name"/>
+							</div>
+							<div style="font-size:1.5em;width:100%; border-bottom:1px dotted #000;">
+								<span>12 
+									
+									
+									<div style="font-size:0.4em;display:inline-block;">
+										CUOTAS
+										
+										
+										<br/>
+										FIJAS DE</div>
+								</span>
+								<t t-raw="o.ba_price_frendly_style(o.price_with_tax / 12)"/>
+							</div>
+							<div style="font-size:1.3em;width:100%; ">
+								<span style="font-size:0.4em;">MEJOR PRECIO 1 PAGO </span>
+								<t t-raw="o.ba_price_frendly_style(o.total_price)"/>
+								<div style="font-size:1em;">26% de Descuento</div>
+							</div>
+						</div>
+					</div>
+				</t>
+			</t>
+		</template>
+		<report id="zebra_sticker_24_71" model="product.product" name="ba_zebra_tag.zebra_sticker" report_type="qweb-pdf" string="Etiqueta 24x71"/>
+		<record id="zebra_sticker_24_71" model="ir.actions.report.xml">
+			<field name="paperformat_id" ref="paperformat_sticker_24_71"/>
+		</record>
+		<report id="zebra_sticker_63_31" model="product.product" name="ba_zebra_tag.zebra_sticker" report_type="qweb-pdf" string="Etiqueta 63x31"/>
+		<record id="zebra_sticker_63_31" model="ir.actions.report.xml">
+			<field name="paperformat_id" ref="paperformat_sticker_63_31"/>
+		</record>
+		<report id="zebra_sticker_50_25" model="product.product" name="ba_zebra_tag.zebra_sticker" report_type="qweb-pdf" string="Etiqueta 50x25"/>
+		<record id="zebra_sticker_50_25" model="ir.actions.report.xml">
+			<field name="paperformat_id" ref="paperformat_sticker_50_25"/>
+		</record>
+		<report id="zebra_sticker_watch" model="product.product" name="ba_zebra_tag.zebra_sticker_watching_product" report_type="qweb-pdf" string="Precio sticker"/>
+		<record id="zebra_sticker_watch" model="ir.actions.report.xml">
+			<field name="paperformat_id" ref="paperformat_sticker_63_31"/>
+		</record>
+	</data>
+</openerp>
