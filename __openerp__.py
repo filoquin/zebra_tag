@@ -33,6 +33,7 @@ Genero etiquetas para la impresion de zebra
     'website': 'http://sipecu.com.ar',
     'depends': ['stock','product','report'],
     'data': [
+        'views/fonts.xml',
         'views/paperformat.xml',
         'views/product.xml',
         'views/stock.xml'

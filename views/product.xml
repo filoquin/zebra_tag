@@ -6,14 +6,14 @@
 				<div style="text-align:center;">
 					<img style="width:auto;max-height:80px;" t-attf-src="data:image/*;base64,{{product.get_barcode(product.default_code,'Code128',480,80,0)}}"/>
 					<div style="overflow:hidden;width:100%;">
-						<div style="white-space: nowrap; font-weiht:700; white-space: nowrap; font-size:2em;" t-field="product.default_code"/>
-						<div style="white-space: nowrap; font-size:2em;" t-field="product.name"/>
+						<div style="white-space: nowrap; font-weiht:700; white-space: nowrap; font-size:1.8em;" t-field="product.default_code"/>
+						<div style="white-space: nowrap; font-size:1.8em;" t-field="product.name"/>
 					</div>
 				</div>
 			</div>
 		</template>
 		<template id="zebra_sticker">
-			<t t-call="report.html_container">
+			<t t-call="ba_zebra_tag.html_zebra_container">
 				<t t-as="o" t-foreach="docs">
 					<t t-set="product" t-value="o"/>
 					<t t-call="ba_zebra_tag.zebra_barcode"/>
@@ -21,10 +21,10 @@
 			</t>
 		</template>
 		<template id="zebra_sticker_watching_product">
-			<t t-call="report.html_container">
+			<t t-call="ba_zebra_tag.html_zebra_container">
 				<t t-as="o" t-foreach="docs">
 					<div class="page">
-						<div style="text-align:center;">
+						<div style="text-align:center">
 							<div style="white-space: nowrap;overflow:hidden;width:100%; border-bottom:1px solid #000;">
 								<div style="white-space: nowrap; font-weiht:700; white-space: nowrap; font-size:0.8em;" t-field="o.default_code"/>
 								<div style="font-size:1em;" t-field="o.name"/>
