@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
-	<data>
-
-		<template id="ba_zebra_tag.layout" inherit_id="web.layout" primary="True">
-    <!-- Add report attributes -->
-    <xpath expr="//html" position="attributes">
-        <attribute name="t-att-data-report-margin-top">data_report_margin_top if data_report_margin_top else None</attribute>
-        <attribute name="t-att-data-report-header-spacing">data_report_header_spacing if data_report_header_spacing else None</attribute>
-        <attribute name="t-att-data-report-dpi">data_report_dpi if data_report_dpi else None</attribute>
-    </xpath>
-    <!-- Add report style -->
-    <xpath expr="//head" position="inside">
-        <link href="/web/static/lib/bootstrap/css/bootstrap.css" rel="stylesheet"/>
-        <link href="/website/static/src/css/website.css" rel="stylesheet"/>
-        <link href="/web/static/lib/fontawesome/css/font-awesome.css" rel="stylesheet"/>
-        <style type="text/css">
-			 @import url('https://fonts.googleapis.com/css?family=Teko:300,400,700');
-            <t t-call="report.style"/>
-			div,p,*,.page{font-family: Teko, sans-serif !important;}
-		</style>
-    </xpath>
-    <!-- Remove conflicting style -->
-    <xpath expr="//head/link[@href='/web/static/src/css/full.css']" position="replace"></xpath>
-</template>
-
-<template id="html_zebra_container">
-    <t t-set="body_classname" t-value="'container'"/>
-    <t t-call="ba_zebra_tag.layout">
-        <t t-raw="0"/>
-    </t>
-</template>
-	</data>
+    <data>
+        <template id="ba_zebra_tag.layout" inherit_id="web.layout" primary="True">
+            <!-- Add report attributes -->
+            <xpath expr="//html" position="attributes">
+                <attribute name="t-att-data-report-margin-top">data_report_margin_top if data_report_margin_top else None</attribute>
+                <attribute name="t-att-data-report-header-spacing">data_report_header_spacing if data_report_header_spacing else None</attribute>
+                <attribute name="t-att-data-report-dpi">data_report_dpi if data_report_dpi else None</attribute>
+            </xpath>
+            <!-- Add report style -->
+            <xpath expr="//head" position="inside">
+                <link href="/web/static/lib/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+                <link href="/website/static/src/css/website.css" rel="stylesheet"/>
+                <link href="/web/static/lib/fontawesome/css/font-awesome.css" rel="stylesheet"/>
+                <style type="text/css">@import url('https://fonts.googleapis.com/css?family=Teko:300,400,700');
+            
+                    <t t-call="report.style"/>
+                    div,p,*,.page{font-family: Teko, sans-serif !important;}</style>
+            </xpath>
+            <!-- Remove conflicting style -->
+            <xpath expr="//head/link[@href='/web/static/src/css/full.css']" position="replace"/>
+        </template>
+        <template id="html_zebra_container">
+            <t t-set="body_classname" t-value="'container'"/>
+            <t t-call="ba_zebra_tag.layout">
+                <t t-raw="0"/>
+            </t>
+        </template>
+    </data>
 </openerp>

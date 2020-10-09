@@ -31,14 +31,13 @@ Genero etiquetas para la impresion de zebra
     """,
     'author': 'Filoquin',
     'website': 'http://sipecu.com.ar',
-    'depends': ['stock','product','report'],
+    'depends': ['stock', 'product', 'report'],
     'data': [
-        'views/fonts.xml',
         'views/paperformat.xml',
         'views/product.xml',
         'views/stock.xml'
     ],
-    "images":[],
+    "images": [],
 
 
     'auto_install': False,

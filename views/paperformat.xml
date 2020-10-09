@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
-    <data>
+	<data>
 		<record id="paperformat_sticker_24_71" model="report.paperformat">
 			<field name="name">Etiq 74 x 24</field>
 			<field eval="True" name="default"/>
@@ -46,7 +46,6 @@
 			<field name="header_spacing">0</field>
 			<field name="dpi">96</field>
 		</record>
-
 		<record id="paperformat_sticker_10_5" model="report.paperformat">
 			<field name="name">Etiq 10 x 5</field>
 			<field eval="True" name="default"/>
@@ -62,5 +61,5 @@
 			<field name="header_spacing">0</field>
 			<field name="dpi">96</field>
 		</record>
-    </data>
+	</data>
 </openerp>
